@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KávéKatt - Asztalfoglalás</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    
+    <style>
+        .error {
+            border: 2px solid red;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+
+    <header>
+        <h1>Asztalfoglalás</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Főoldal</a></li>
+            <li><a href="content.html">Történetünk</a></li>
+            <li><a href="pic.html">Galéria</a></li>
+            <li><a href="form.html">Asztalfoglalás</a></li>
+        </ul>
+    </nav>
+    <div>
+        <form id="urlapForm">
+            <label for="nev">Név:</label>
+            <input type="text" id="nev">
+            <span id="nev-error" class="error-message"></span>
+            <br>
+
+            <span>Milyen kávét szeretne inni?</span>
+            <input type="radio" id="espresso" name="kave" value="Espresso">
+            <label for="espresso">Espresso</label>
+            <input type="radio" id="cappuccino" name="kave" value="Cappuccino">
+            <label for="cappuccino">Cappuccino</label>
+            <br>
+
+            <span>Cukor:</span>
+            <input type="checkbox" id="barnacukor" name="cukor" value="Barna cukor">
+            <label for="barnacukor">Barna cukor</label>
+            <input type="checkbox" id="méz" name="cukor" value="Méz">
+            <label for="méz">Méz</label>
+            <br>
+
+            <label for="szin">Asztal dekor szín:</label>
+            <input type="color" id="szin" name="szin">
+            <br>
+
+            <label for="datum">Dátum:</label>
+            <input type="date" id="datum">
+            <br>
+
+            <button type="submit">Foglalás</button>
+        </form>
+    </div>
+</body>
+</html>
