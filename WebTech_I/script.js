@@ -1,15 +1,23 @@
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("urlapForm");
     const nev = document.getElementById("nev");
+    const esp = document.getElementById("espID");
+    const cap = document.getElementById("capID");
     const nevError = document.createElement("span");
+    const radioError = document.createElement("span");
+
     nevError.id = "nev-error";
     nevError.className = "error-message";
     nev.insertAdjacentElement("afterend", nevError);
 
+    radioError.id = "radio-error";
+    radioError.className = "error-message";
+    esp.insertAdjacentElement("afterend", radioError);
+    cap.insertAdjacentElement("afterend", radioError);
+
     const kaveElems = document.getElementsByName("kave");
     const datum = document.getElementById("datum");
 
-    // Animáció funkció hibaüzenethez
     function showError(elem, message) {
         elem.textContent = message;
         elem.style.opacity = "0";
@@ -22,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", function (event) {
         let valid = true;
 
-        // Név ellenőrzése
         if (!nev.value.trim()) {
             valid = false;
             showError(nevError, "Kérjük, adja meg a nevét!");
@@ -32,7 +39,24 @@ document.addEventListener("DOMContentLoaded", function () {
             nev.style.border = "1px solid black";
         }
 
-        // Kávé választás ellenőrzése
+        /*if (!esp.value.trim()) {
+            valid = false;
+            showError(radioError, "Kérjük válasszon az alábbi opciók közül!");
+            esp.style.border = "2px solid red";
+        } else {
+            radioError.textContent = "";
+            esp.style.border = "1px solid black";
+        }
+
+        if (!cap.value.trim()) {
+            valid = false;
+            showError(radioError, "Kérjük válasszon az alábbi opciók közül!");
+            cap.style.border = "2px solid red";
+        } else {
+            radioError.textContent = "";
+            cap.style.border = "1px solid black";
+        }*/
+
         let kaveSelected = false;
         for (let i = 0; i < kaveElems.length; i++) {
             if (kaveElems[i].checked) {
@@ -42,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         if (!kaveSelected) {
             valid = false;
+            showError(radioError, "Kérjük válasszon az alábbi opciók közül!");
         }
 
         // Dátum ellenőrzése
